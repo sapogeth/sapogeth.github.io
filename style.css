@@ -1,0 +1,513 @@
+.form-select {
+    font-family: 'Cubynets', sans-serif; /* Применяем шрифт к select */
+}
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('back.jpeg'); /* Путь к общему фону */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh; /* Высота для полного экрана */
+    overflow: hidden; /* Скрываем прокрутку */
+    margin: 0; /* Убираем отступы у body */
+}
+
+/* Фоновый GIF */
+.background-gif {
+    position: fixed; /* Фиксируем элемент */
+    top: 0; /* Позиционируем сверху */
+    left: 0; /* Позиционируем слева */
+    width: 100%; /* Ширина на 100% */
+    height: 100%; /* Высота на 100% */
+    background-image: url('rain.gif'); /* Укажите путь к вашему GIF */
+    background-size: 400px; /* Растягиваем изображение, чтобы покрыть весь экран */
+    background-repeat: repeat; /* Повторяем изображение по всему экрану */
+    z-index: -1; /* Отправляем на задний план */
+}
+
+.rain {
+    position: relative; /* Позволяет использовать z-index */
+    text-align: center;
+    padding: 0px;
+    height: 300px; /* Установите нужную высоту для элемента */
+    z-index: 1; /* Устанавливаем z-index для этого элемента */
+}
+
+@keyframes fall {
+    0% {
+        top: -100px;
+    }
+    100% {
+        top: 100vh; /* Гифка будет падать за пределы экрана */
+    }
+}
+
+.money-background {
+    position: fixed;
+    width: 60vw; /* На всю ширину экрана */
+    height: 60vh; /* На всю высоту экрана */
+    background-image: url('money1.png'); /* Путь к изображению с деньгами */
+    background-size: cover; /* Сохраняет пропорции изображения */
+    background-repeat: no-repeat;
+    background-position: center; /* Центрируем изображение */
+    margin: 0 auto; /* Центрируем блок */
+    position: relative; /* Позволяет использовать отступы */
+    left: 20px; /* Сдвигаем блок вправо (настраивайте по необходимости) */
+    z-index: 1; /* Устанавливаем порядок наложения */
+    object-fit: cover; /* или object-fit: contain для сохранения пропорций */
+    overflow: visible; /* Позволяет изображению выходить за пределы контейнера */
+    clip-path: none; /* Убирает обрезку по маске */
+    top: -100px; /* Расположи на самом верху страницы */
+    left: 0; /* Расположи в левом углу */
+}
+
+header {
+    position: relative; /* Позволяет использовать z-index */
+    overflow: visible; /* Позволяет фону быть видимым за пределами заголовка */
+    padding: 0; /* Убираем отступы у header */
+    margin: 0; /* Убираем отступы у header */
+}
+
+/* Логотип */
+#logo {
+    position: fixed;
+    width: 550px; /* Ширина логотипа */
+    display: block;
+    margin: 20px auto; /* Центрируем логотип */
+    position: relative;
+    z-index: 2; /* Логотип выше фона */
+    top: -450px;
+}
+
+.subheader {
+    font-family: 'Cubynets', sans-serif; /* Указываем новый шрифт */
+    font-size: 1.8em;
+    font-weight: normal;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    position: relative;
+    top: -530px;
+    left: -20px;
+    z-index: 2; /* Подзаголовок выше фона */
+}
+
+/* Основная секция для GIFов */
+.left-section {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 70px;
+    left: 90px;
+    padding: 0;
+}
+
+.gif-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0;
+    width: 100%;
+    height: 80%;
+}
+
+.gif-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+/* Центрирование основного контента */
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-left: 200px;
+}
+
+/* Центрированная секция для выпадающих меню */
+.center-section {
+    width: 30%; /* Установите нужную ширину для вашей секции */
+    text-align: center; /* Центрируем текст внутри */
+    margin: 0 auto; /* Центрируем элемент */
+}
+
+/* Right section for social buttons */
+.right-section {
+    width: 40%;
+    padding: 20px;
+}
+
+/* Социальные опции */
+.social-options {
+    display: flex;
+    flex-direction: column; /* Расположение в столбик */
+    align-items: flex-start; /* Выравнивание по левому краю */
+    margin-top: 50px; /* Отступ сверху */
+    padding-left: -20px; /* Отступ слева */
+    width: 250px; /* Ширина контейнера, можно настроить */
+    position: relative; /* Позволяет использовать отступы и позиционирование */
+}
+
+/* Индивидуальные опции */
+.option {
+    font-size: 2em; /* Размер шрифта, можно настроить */
+    margin: 30px 0; /* Отступы сверху и снизу */
+    color: rgb(0, 136, 2); /* Цвет текста */
+    
+    /* Эффект обводки для каждой буквы */
+    text-shadow: 
+        -1px -1px 0 rgb(0, 0, 0),  
+         1px -1px 0 rgb(0, 0, 0),
+        -1px  1px 0 rgb(0, 0, 0),
+         1px  1px 0 rgb(0, 0, 0); /* Черная обводка */
+    
+    cursor: pointer; /* Указывает, что элемент кликабельный */
+}
+
+/* Эффект при наведении */
+.option:hover {
+    color: rgb(243, 243, 243); /* Цвет текста при наведении */
+}
+
+/* Контейнер для социальных опций */
+.social-container {
+    display: flex; /* Используем flexbox для расположения опций */
+    flex-direction: column; /* Вертикальное расположение */
+    align-items: center; /* Центрирование содержимого по горизонтали */
+    width: 100%; /* Ширина 100% для заполнения родителя */
+    position: absolute; /* Позволяет позиционировать относительно родителя */
+    top: 100px; /* Положение сверху */
+    left: 0; /* Положение слева */
+}
+/* Скрытый контент */
+.hidden {
+    display: none;
+}
+
+.audio-player {
+    width: 220px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000000;
+    left: 1150px;
+}
+
+.album-art img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#play-pause-btn {
+    background-color:hsl(128, 100%, 39%);
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#play-pause-btn:hover {
+    background-color: hsl(128, 100%, 39%);
+}
+
+#progress-bar {
+    width: 100%;
+    margin-top: 10px;
+    -webkit-appearance: none;
+    background-color: #000000;
+    height: 5px;
+    border-radius: 5px;
+}
+
+#progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background-color: hsl(128, 100%, 39%);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.babka-container {
+    position: fixed; /* Фиксированное позиционирование */
+    top: 350px; /* Отступ сверху, устанавливается ниже плеера */
+    right: 50px; /* Отступ справа, тот же, что и у плеера */
+    display: flex; /* Используем flexbox для центрирования */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    z-index: 9; /* Убедитесь, что гифка находится ниже плеера */
+}
+
+.ggif {
+    width: 280px; /* Ширина гифки (можно настроить) */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+}
+
+.down {
+    position: fixed;
+    margin-top: -180px; /* Попробуйте убрать или изменить это значение */
+    margin-left: -280px;
+    display: flex; /* Используем flex для центрирования */
+    justify-content: left; /* Центрируем по горизонтали */
+}
+
+.img-down {
+    position: fixed;
+    width: 500px; /* Установите нужную ширину */
+    height: auto; /* Позволяет высоте подстраиваться автоматически для сохранения пропорций */
+    max-width: 100%; /* Ограничиваем ширину для адаптивности */
+    border-radius: 10px; /* Закругление углов (по желанию) */
+    transition: box-shadow 0.3s ease; /* Плавный переход для эффекта при наведении */
+}
+
+.koka {
+    position: fixed; /* Фиксированное позиционирование */
+    bottom: -100px; /* Отступ снизу */
+    right: -60px; /* Отступ справа */
+    z-index: 10; /* Убедитесь, что изображение выше других элементов */
+}
+
+.corner {
+    width: 500px; /* Ширина изображения, можно настроить */
+    height: 400px;
+    height: auto; /* Высота подстраивается автоматически для сохранения пропорций */
+    border-radius: 10px; /* Закругление углов (по желанию) */
+    /*box-shadow: 0 0 15px rgba(255, 215, 0, 0.7); /* Эффект свечения */
+    transition: box-shadow 0.3s ease; /* Плавный переход для эффекта при наведении */
+}
+
+
+---
+
+.file-upload-container {
+    display: flex; /* Используем flex для горизонтального расположения */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: flex-start; /* Выравниваем по верхнему краю */
+    margin-top: 50px; /* Отступ сверху */
+}
+
+.file-input-section {
+    margin-right: 20px; /* Отступ справа для файла */
+}
+
+.image-preview-section {
+    display: flex; /* Используем flex для адаптивности */
+    flex-wrap: wrap; /* Позволяем обертывание изображений */
+    max-width: 600px; /* Максимальная ширина для области изображений */
+}
+
+.preview {
+    max-width: calc(33% - 10px); /* Максимальная ширина для 3 изображений в ряд */
+    height: auto; /* Высота подстраивается автоматически для сохранения пропорций */
+    margin: 5px; /* Отступ между изображениями */
+    border: 2px solid #ccc; /* Рамка вокруг изображения */
+    border-radius: 10px; /* Закругление углов */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень вокруг изображения */
+    object-fit: cover; /* Заполнение области изображения */
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+
+/* Адаптация для очень маленьких экранов */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+
+    .container {
+        padding: 5px;
+    }
+}
+
+
+------
+
+.container {
+    display: flex;
+    gap: 30px; /* Расстояние между select и изображениями */
+    align-items: flex-start; /* Выровнять select по верху */
+}
+
+.form-select {
+    position: relative;
+    width: 100px !important; 
+    top: -140px;
+    margin-top: -80px; /* Этот отступ можно оставить, если он нужен */
+    margin-left: 150px;
+    margin-bottom: 0px; /* Увеличиваем расстояние между элементами */
+    z-index: 999;
+}
+
+
+/* Если необходимо, можно добавить отдельный класс для обертки всех select, чтобы лучше управлять их позиционированием */
+.select-container {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение элементов */
+    gap: 2px; /* Расстояние между элементами, если вы хотите */
+    margin-left: 0px; /* Отступ слева для контейнера */
+    grid-template-columns: repeat(2, 1fr); /* Два столбца */
+}
+
+.image-layer-container {
+    position: relative;
+    width: 300px; /* Ширина контейнера для изображения */
+    height: 300px; /* Высота контейнера для изображения */
+    border: 2px solid #ccc;
+    display: flex; /* Центрирование изображений внутри */
+    justify-content: center; 
+    align-items: center; 
+    margin-top: -450px;
+    margin-right: 100px;
+    margin-left: 450px;
+    /*overflow: hidden; /* Обрезать изображение, если оно выходит за пределы */
+}
+
+.image-layer-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+    opacity: 0; /* Hide by default */
+    transition: opacity 0.3s; /* Smooth transition */
+}
+
+.image-layer-container img.visible {
+    opacity: 1; /* Show the visible image */
+}
+
+#select-container {
+    position: relative; /* Позволяет использовать z-index для дочерних элементов */
+    width: 100%; /* Задайте ширину контейнера по необходимости */
+    height: 100%; /* Задайте высоту контейнера по необходимости */
+}
+
+#select-container img {
+    position: absolute; /* Позволяет слоям накладываться друг на друга */
+    top: 0; /* Начальная позиция по вертикали */
+    left: 0; /* Начальная позиция по горизонтали */
+}
+
+#select-container img.background { z-index: 1; } /* Фон */
+#select-container img.skin { z-index: 2; } /* Кожа */
+#select-container img.clothes { z-index: 3; } /* Одежда */
+#select-container img.foreground { z-index: 4; } /* Передний план */
+#select-container img.decor { z-index: 5; } /* Декор */
+#select-container img.eff { z-index: 6; } /* Декор */
+
+/* Пример изменения местоположения для селектора шляп */
+.hats-select {
+    margin-top: -40px; /* Отступ сверху */
+    margin-left: 250px; /* Отступ слева */
+    width: 200px; /* Ширина селектора */
+    /* Дополнительные стили, если нужно */
+}
+
+.hands-select {
+    margin-top: 0px; /* Отступ сверху */
+    margin-left: 250px; /* Отступ слева */
+    width: 200px; /* Ширина селектора */
+    /* Дополнительные стили, если нужно */
+}
+
+.mouth-select {
+    margin-top: 0px; /* Отступ сверху */
+    margin-left: 250px; /* Отступ слева */
+    width: 200px; /* Ширина селектора */
+    /* Дополнительные стили, если нужно */
+}
+
+.hair-select {
+    margin-top: 0px; /* Отступ сверху */
+    margin-left: 250px; /* Отступ слева */
+    width: 200px; /* Ширина селектора */
+    /* Дополнительные стили, если нужно */
+}
+
+.brows-select {
+    margin-top: 0px; /* Отступ сверху */
+    margin-left: 250px; /* Отступ слева */
+    width: 200px; /* Ширина селектора */
+    /* Дополнительные стили, если нужно */
+}
+
+.hat-layer {
+    z-index: 2; /* Шляпы выше */
+}
+
+.hair-layer {
+    z-index: 1; /* Волосы ниже шляп */
+}
+
+.glasses-select {
+    margin-top: 0px; /* Отступ сверху */
+    margin-left: 250px; /* Отступ слева */
+    width: 200px; /* Ширина селектора */
+    /* Дополнительные стили, если нужно */
+}
+
+.video-layer {
+    position: relative; /* или relative, в зависимости от вашего дизайна */
+    top: -120px; /* Установите нужное значение для позиционирования */
+    left: -570px; /* Установите нужное значение для позиционирования */
+    width: 400px; /* Установите нужный размер */
+    height: 150px; /* Или укажите конкретное значение, например, height: 100%; */
+    z-index: 0; /* Убедитесь, что z-index установлен правильно для наложения на другие элементы */
+}
+
+.social-options .option {
+    font-family: "Creepster", system-ui; /* Используем шрифт Creepster */
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px; /* Установите желаемый размер шрифта */
+    text-decoration: none; /* Убираем подчеркивание ссылок, если нужно */
+    color: #009238; /* Установите цвет текста, например, черный */
+}
+
+.social-options .option:hover {
+    color: #f5f5f5; /* Измените цвет текста при наведении, если нужно */
+}
