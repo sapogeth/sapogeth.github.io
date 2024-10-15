@@ -3,81 +3,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic-Tac-Toe</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        #game-board {
-            display: grid;
-            grid-template-columns: repeat(3, 100px);
-            gap: 5px;
-        }
-        .cell {
-            width: 100px;
-            height: 100px;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2em;
-            cursor: pointer;
-        }
-    </style>
+    <title>GrandLadies Meme Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">    
 </head>
-<body>
-    <div id="game-board">
-        <div class="cell" data-index="0"></div>
-        <div class="cell" data-index="1"></div>
-        <div class="cell" data-index="2"></div>
-        <div class="cell" data-index="3"></div>
-        <div class="cell" data-index="4"></div>
-        <div class="cell" data-index="5"></div>
-        <div class="cell" data-index="6"></div>
-        <div class="cell" data-index="7"></div>
-        <div class="cell" data-index="8"></div>
-    </div>
+<style>
+    /* Стили для аудиоплеера */
+    .audio-player {
+        position: fixed; /* Позволяет разместить плеер поверх других элементов */
+        top: 20px; /* Расположение от верхнего края */
+        right: 20px; /* Расположение от правого края */
+        z-index: 1000; /* Убедитесь, что плеер выше других элементов */ 
+        border-radius: 10px; /* Закругленные углы (по желанию) */
+        overflow: hidden; /* Скрывает переполнение */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для плеера */
+    }
+</style>
+<body class="body">
+    <div class="background-gif"></div> <!-- Фоновый GIF -->
+    
+    <!-- Header with separate background and logo -->
 
-    <script>
-        let gameState = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
-        let currentPlayer = 'X';
-        const cells = document.querySelectorAll('.cell');
+        <div class="money-background"></div> <!-- Фон с деньгами -->
+        <img src="gran.png" alt="GrandLadies Logo" id="logo"> <!-- Логотип -->
+        <h2 class="subheader">We're gonna rug u</h2> <!-- Подзаголовок -->
+
+
+    <!-- Main content section -->
+    <main>
         
-        cells.forEach(cell => {
-            cell.addEventListener('click', () => {
-                const index = cell.getAttribute('data-index');
-                if (gameState[index] === ' ') {
-                    gameState[index] = currentPlayer;
-                    cell.textContent = currentPlayer;
-                    if (checkWin(currentPlayer)) {
-                        setTimeout(() => alert(`${currentPlayer} wins!`), 100);
-                        resetGame();
-                    } else {
-                        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-                    }
-                }
-            });
-        });
+        <div class="audio-player">
+            <div class="album-art">
+                <img src="run.jpeg" alt="Album Cover">
+            </div>
+            <div class="controls">
+                <button id="play-pause-btn">Play</button>
+                <input id="progress-bar" type="range" value="0" min="0" max="100">
+            </div>
+            <audio id="audio">
+                <source src="music.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        
+        <div class="babka-container">
+            <img src="simp.gif" alt="Animated GIF" class="ggif" />
+        </div>
 
-        function checkWin(player) {
-            const winPatterns = [
-                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-                [0, 3, 6], [1, 4, 7], [2, 5, 8]  // Columns
-            ];
-            return winPatterns.some(pattern => 
-                pattern.every(index => gameState[index] === player)
-            );
-        }
+        <div class="rain"></div>   
+        <div class="down">
+            <img src="down.png" alt="GIF" class="img-down">
+        </div>
 
-        function resetGame() {
-            gameState = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
-            cells.forEach(cell => cell.textContent = '');
-        }
-    </script>
+        <div class="koka">
+            <img src="right.png" alt="Your Photo" class="corner">
+        </div>
+
+             <!-- Left section for GIFs and checkmarks -->
+                <div class="left-section">
+                    <div class="gif-container">
+                        <img src="gif1-path.gif" alt="GIF 1">
+                        <img src="gif2-path.gif" alt="GIF 2">
+                        <img src="gif3-path.gif" alt="GIF 3">
+                        <img src="gif4-path.gif" alt="GIF 4">
+                    </div>
+                    <div class="social-options">
+                        <a class="option" href="https://x.com/grandladies" target="_blank">Twitter <span class="checkmark">✔</span></a>
+                        <a class="option" href="https://t.co/8NKiAJlWRW" target="_blank">TELEGRAM <span class="checkmark">✔</span></a>
+                        <a class="option" href="https://www.yaeby.pro/categories/" target="_blank">Sex Time <span class="checkmark">✔</span></a>
+                    </div>
+                </div>
+    
+                <div class="container">
+                    <!-- Selects for choosing images -->
+                    <div class="select-container">
+                        <select class="form-select" id="image-select-eff" aria-label="Select Effects">
+                            <option selected disabled>Effects</option>
+                            <option value="Error_plate.png">Erroe Plate</option>
+                            <option value="Top_Bottom.png">Top Bottom</option>
+                            <option value="VHS.png">VHS</option>
+                            <option value="Vignette.png">Vignetter</option>
+                            <option value="Water_drops.png">Water Drops</option>
+                            <option value="Blood.png">Blood</option>
+                            <option value="STFU.png">STFU</option>
+                            <option value="U_Gay.png">U GAY</option>
+                            <option value="Cursed_Emoji.png">Cursed Emoji</option>
+                            <option value="Lobotomy.png">Lobotomy</option>
+                            <option value="Money.png">Money</option>
+                            <option value="Glass.png">Glass</option>
+                            <option value="Rare.png">Rare</option>
+                        </select>
+                
+                        <select class="form-select" id="image-select-foreground" aria-label="Select Foreground">
+                            <option selected disabled>Accessories</option>
+                            <option value="Earring_Silver.png">Earring</option>
+                            <option value="Hoop_Silver.png">Hoop</option>
+                            <option value="Piercing_Silver.png">Piercing</option>
+                            <option value="Star.png">Star</option>
+                            <option value="Chain.png">Chain</option>
+                            <option value="Cigaret.png">Cigaret</option>
+                            <option value="Earring_Gold.png">Earring Gold</option>
+                            <option value="Cat_Earring.png">Cat Earring</option>
+                            <option value="Elf_Ear_1.png">Elf Ear</option>
+                            <option value="Hoop_Gold.png">Hoop Gold</option>
+                            <option value="Piercing_Gold.png">Piercing Gold</option>
+                            <option value="Elf_Ear_2.png">Elf Ear 2</option>
+                        </select>
+                
+                        <select class="form-select" id="image-select-decor" aria-label="Select Decor">
+                            <option selected disabled>Eyes</option>
+                            <option value="Angry_Green.png">Angry Green</option>
+                            <option value="Angry_Pink.png">Angry Pink</option>
+                            <option value="Angry_Purple.png">Angry Purple</option>
+                            <option value="Hearts_Blue.png">Hearts Blue</option>
+                            <option value="Hearts_Pink.png">Hearts Pink</option>
+                            <option value="Hearts_Red.png">Hearts Red</option>
+                            <option value="Hypnotic_Brown.png">Hypnotic Brown</option>
+                            <option value="Hypnotic_Sad_LightBlue.png">Hypnotic Sad LightBlue</option>
+                            <option value="Hypnotic_Sad_Orange.png">Hypnotic Sad Orange</option>
+                            <option value="Hypnotic_Sad_Purple.png">Hypnotic Sad Purple</option>
+                            <option value="Hypnotic_Sad_Red.png">Hypnotic Sad Red</option>
+                            <option value="Wink_Blue.png">Wink Blue</option>
+                            <option value="Wink_Purple.png">Wink Purple</option>
+                            <option value="Wink_Yellow.png">Wink Yellow</option>
+                            <option value="Angry_Blue.png">Angry Blue</option>
+                            <option value="Hypnotic_Blue.png">Hypnotic Blue</option>
+                            <option value="Hypnotic_Green.png">Hypnotic Green</option>
+                            <option value="Hypnotic_Purple.png">Hypnotic Purple</option>
+                            <option value="Hypnotic_Yellow.png">Hypnotic Yellow</option>
+                            <option value="Light_Blue_Orange.png">Light Blue Orange</option>
+                            <option value="Light_Blue_Pink.png">Light Blue Pink</option>
+                            <option value="Light_Blue.png">Light Blue</option>
+                            <option value="Light_Purple_Green.png">Light Purple Green</option>
+                            <option value="Sad_Blue.png">Sad Blue</option>
+                            <option value="Sad_Gray.png">Sad Gray</option>
+                            <option value="Sad_Green.png">Sad Green</option>
+                            <option value="Sad_Red.png">Sad Red</option>
+                            <option value="Clown_Eyes.png">Clown Eyes</option>
+                            <option value="Crying.png">Crying</option>
+                            <option value="Dots.png">Dots</option>
+                            <option value="Grey_Realism.png">Grey Realism</option>
+                            <option value="Hearts_Green.png">Hearts Green</option>
+                            <option value="Wink_Green.png">Wink Green</option>
+                            <option value="Realism.png">Realism</option>
+                            <option value="Realism_2.png">Realism 2</option>
+                            <option value="Angry_Blue_Realism">Angry Blue Realism</option>
+                        </select>
+
+                        <select class="form-select" id="image-select-clothes" aria-label="Select Clothes">
+                            <option selected disabled>Clothes</option>
+                            <option value="Bra.png">Bra</option>
+                            <option value="Fur_pink.png">Fur Pink</option>
+                            <option value="Furry_Tshirt.png">Furry Tshirt</option>
+                            <option value="Longsleeve_Green.png">LongSleeve Green</option>
+                            <option value="Top_Blue.png">Top Blue</option>
+                            <option value="Top_Green.png">Top Green</option>
+                            <option value="Bloody.png">bloody</option>
+                            <option value="Bra.png">Bra</option>
+                            <option value="fur_leopard.png">Fur Leopard</option>
+                            <option value="Hoodie.png">Hoodie</option>
+                            <option value="Longsleeve_Red.png">Longsleeve Red</option>
+                            <option value="NFT_Tshirt.png">NFT T-shirt</option>
+                            <option value="Nipples.png">Nipples</option>
+                            <option value="Pink_bra.png">Pink Bra</option>
+                            <option value="Fur_Green.png">Fur Green</option>
+                            <option value="Shirt.png">Shirt</option>
+                            <option value="Sweater .png">Sweater</option>
+                        </select>
+
+                        <select class="form-select" id="image-select-skin" aria-label="Select Skin">
+                            <option selected disabled>Skin</option>
+                            <option value="Basic_4.png">Basic 4</option>
+                            <option value="Basic_5.png">Basic 5</option>
+                            <option value="Moles_1.png">Moles 1</option>
+                            <option value="Moles_2.png">Moles 2</option>
+                            <option value="Moles_3.png">Moles 3</option>
+                            <option value="Moles_4.png">Moles 4</option>
+                            <option value="Basic_3.png">Basic 3</option>
+                            <option value="Tattoo_2.png">Tattoo 2</option>
+                            <option value="Tattoo_3.png">Tattoo 3</option>
+                            <option value="Tattoo_4.png">Tattoo 4</option>
+                            <option value="Basic_2.png">Basic 2</option>
+                            <option value="scars.png">Scars</option>
+                            <option value="Tattoo_1.png">Tattoo 1</option>
+                            <option value="Frankenstein .png">Frankenstein</option>
+                            <option value="Basic_1.png">Basic 1</option>
+                        </select>
+
+                        <select class="form-select" id="image-select-background" aria-label="Select Background">
+                            <option selected disabled>Background</option>
+                            <option value="wtf.jpeg">WTF</option>
+                            <option value="Dank_memes.jpeg">Dank Meme</option>
+                            <option value="DankMEMES1.jpeg">Dank Memes1</option>
+                            <option value="DankMEMES2.jpeg">Dank Memes2</option>
+                            <option value="DankMEMES3.jpeg">Dank Memes3</option>
+                            <option value="DankMEMES5.jpeg">Dank Memes5</option>
+                            <option value="DankMEMES6.jpeg">Dank Memes6</option>
+                            <option value="Factory.jpeg">Factory</option>
+                            <option value="Garages.jpeg">Garages</option>
+                            <option value="Meme_eras.jpeg">Meme eras</option>
+                            <option value="Shadows.jpeg">Shadows</option>
+                            <option value="Soviet_apartment.jpeg">Soviet Apartment</option>
+                            <option value="Soviet_apartment2.jpeg">Soviet Apartment2</option>
+                            <option value="Soviet_apartment3.jpeg">Soviet Apartment3</option>
+                            <option value="Trailer_Park.jpeg">Trailer Park</option>
+                            <option value="Ur_Future_Job.jpeg">Ur Future Job</option>
+                            <option value="VHSForest_2.jpeg">VHSForest</option>
+                            <option value="Video_cassette_rental.jpeg">Video Cassette rental</option>
+                            <option value="911.jpeg">911</option>
+                            <option value="Creepy_room.jpeg">Creepy Room</option>
+                            <option value="DankMEMES4.jpeg">Dank Memes4</option>
+                            <option value="DankMEMES7.jpeg">Dank Memes7</option>
+                            <option value="Eye.jpeg">Eye</option>
+                            <option value="Frog.jpeg">Frog</option>
+                            <option value="Glamour.jpeg">Glamour</option>
+                            <option value="Japanese_house.jpeg">Japanese House</option>
+                            <option value="Minion_sad.jpeg">Minion Sad</option>
+                            <option value="Pattern.jpeg">Pattern</option>
+                            <option value="Saddam.jpeg">Saddam</option>
+                            <option value="Scary_gal.jpeg">Scary Gal</option>
+                            <option value="Slot_machine.jpeg">Slot Machine</option>
+                            <option value="Soviet_apartment4.jpeg">Soviet Apartment4</option>
+                            <option value="Basement.png">Basement</option>
+                            <option value="Carpet.jpeg">Carpet</option>
+                            <option value="Circus.jpeg">Circus</option>
+                            <option value="Ishittedmyself.jpeg">Ishittedmyself</option>
+                            <option value="Japanese_scary_stuff.jpeg">Japanese Scary Stuff</option>
+                            <option value="Soviet.jpeg">Soviet</option>
+                            <option value="VHSForest.jpeg">VHSForest</option>
+                            <option value="Gradient_2.jpeg">Gradient 2</option>
+                            <option value="Gradient.jpeg">Gradient</option>
+                            <option value="Error.jpeg">Error</option>
+                        </select>
+
+                        <select class="form-select hats-select" id="image-select-hats" aria-label="Select Hats">
+                            <option selected disabled>Hats</option>
+                            <option value="Cat_ears.png">Cat Ears</option>
+                            <option value="Cowboy_hat.png">Cowboy Hat</option>
+                            <option value="McDonald_s_cap.png">McDonald cap</option>
+                            <option value="No_hat.png">???</option>
+                            <option value="Beret.png">Beret</option>
+                            <option value="Clown_hat.png">Clown Hat</option>
+                            <option value="Bowler_hat.png">Browle Hat</option>
+                            <option value="Cap.png">Cap</option>
+                            <option value="Crown.png">Crown</option>
+                        </select>
+
+                        <select class="form-select hands-select" id="image-select-hands" aria-label="Select Hands">
+                            <option selected disabled>Hands</option>
+                            <option value="bong.png">Bong</option>
+                            <option value="Fists.png">Fists</option>
+                            <option value="moneyy.png">Moneyy</option>
+                            <option value="No_hands.png">???</option>
+                            <option value="Come_here.png">Come Here</option>
+                            <option value="UGAY.png">UGAY</option>
+                            <option value="Fuck.png">Fuck</option>
+                            <option value="Cigar.png">Cigar</option>
+                            <option value="Knife.png">Knife</option>
+                            <option value="Sex_.png">Sex</option>
+                        </select>
+                        <select class="form-select mouth-select" id="image-select-mouth" aria-label="Select Mouth">
+                            <option selected disabled>Mouth</option>
+                            <option value="Basic.png">Basic</option>
+                            <option value="Smile.png">Smile</option>
+                            <option value="Smirk.png">Smirk</option>
+                            <option value="Wow.png">Wow</option>
+                            <option value="Bloodd.png">Blood</option>
+                            <option value="Braces.png">Braces</option>
+                            <option value="Weed.png">Weed</option>
+                            <option value="Fangs.png">Fangs</option>
+                            <option value="Gym.png">Gym</option>
+                            <option value="Clown_mouth.png">Clown Mouth</option>
+                            <option value="Piercing.png">Piercing</option>
+                        </select>
+                        <select class="form-select hair-select" id="image-select-hair" aria-label="Select hair">
+                            <option selected disabled>Hair</option>
+                            <option value="Bun_Darkblue.png">Bun Darkblue</option>
+                            <option value="Bun_Purple.png">Bun Purple</option>
+                            <option value="Curlers_Purple.png">Curles Purple</option>
+                            <option value="Curls_Grey.png">Curles Grey</option>
+                            <option value="Long_Blonde.png">Long Blonde</option>
+                            <option value="Shor_Blue.png">Short Blue</option>
+                            <option value="Curls_Orange.png">Curles Orange</option>
+                            <option value="Long_Grey.png">Long Grey</option>
+                            <option value="Short_Brown.png">Short Brown</option>
+                            <option value="Short_Red.png">Short Red</option>
+                            <option value="Short_White.png">Short White</option>
+                            <option value="Curlers_Blue.png">Curles Blue</option>
+                            <option value="Short_Black.png">Short Black</option>
+                            <option value="Short_Gradient.png">Short Gradient</option>
+                            <option value="Original_Green.png">Original Green</option>
+                            <option value="Rainbow.png">Rainbow</option>
+                            <option value="Original.png">Original</option>
+                        </select>
+                        <select class="form-select brows-select" id="image-select-brows" aria-label="Select Brows">
+                            <option selected disabled>Brows</option>
+                            <option value="Fluffy_Angry_Black.png">Fluffy Angry Black</option>
+                            <option value="Fluffy_Angry_Blue.png">Fluffy Angry Blue</option>
+                            <option value="Fluffy_Black.png">Fluffy Black</option>
+                            <option value="Fluffy_Blue.png">Fluffy Blue</option>
+                            <option value="Fluffy_Grey.png">Fluffy Grey</option>
+                            <option value="Question.png">Question</option>
+                            <option value="Standast.png">Standast</option>
+                            <option value="Thin_Black.png">Thin Black</option>
+                            <option value="Fluffy_Angry_Grey.png">Fluffy Angry Grey</option>
+                            <option value="Fluffy_Angry_Orange.png">Fluffy Angry Orange</option>
+                            <option value="Fluffy_Purple.png">Fluffy Purple</option>
+                            <option value="Sad_Black.png">Sad Black</option>
+                            <option value="Thin_Blonde.png">Thin Blonde</option>
+                            <option value="Thin_Brown.png">Thin Brown</option>
+                            <option value="Thin_Red.png">Thin Red</option>
+                            <option value="Fluffy_Angry_Red.png">Fluffy Angry Red</option>
+                            <option value="Thin_Green.png">Thin Green</option>
+                            <option value="Sad_Pink.png">Sad Pink</option>
+                            <option value="Wavy.png">Wavy</option>
+                            <option value="Oval.png">Oval</option>
+                            <option value="Rrainbow.png">Rainbow</option>
+                            <option value="Originall.png">Original</option>
+                        </select>
+                        <select class="form-select glasses-select" id="image-select-glasses" aria-label="Select Glasses">
+                            <option selected disabled>Glasses</option>
+                            <option value="Aviators.png">Aviators</option>
+                            <option value="Circle_Silver.png">Circle Silver</option>
+                            <option value="Oval_White.png">Oval White</option>
+                            <option value="Rectangular_Blue.png">Rectangular Blue</option>
+                            <option value="Leopard.png">Leopard</option>
+                            <option value="Meme_2.png">Meme_2</option>
+                            <option value="Rectangular_red.png">Rectangular Red</option>
+                            <option value="Circle_Black.png">Circle Black</option>
+                            <option value="Sunglasses.png">Sunglasses</option>
+                            <option value="Meme_1.png">Meme 1</option>
+                            <option value="Nose.png">Nose</option>
+                            <option value="Oval_Gold.png">Oval Gold</option>
+                        </select>
+                    </div>
+                
+                    <div class="image-layer-container" id="image-layer-container">
+                        <!-- Images will be added here -->
+                    </div>
+                </div>
+
+                <video id="myVideo" class="video-layer" autoplay muted loop>
+                    <source src="video.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>                
+                
+                <script src="sc.js"></script>
+</main>
 </body>
 </html>
