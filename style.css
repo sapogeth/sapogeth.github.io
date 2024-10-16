@@ -12,7 +12,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 120vh; /* Высота для полного экрана */
+    height: 80vh; /* Высота для полного экрана */
     overflow: hidden; /* Скрываем прокрутку */
     margin: 0; /* Убираем отступы у body */
 }
@@ -266,7 +266,7 @@ main {
 
 .down {
     position: fixed;
-    margin-top: -220px; /* Попробуйте убрать или изменить это значение */
+    margin-top: -150px; /* Попробуйте убрать или изменить это значение */
     margin-left: -280px;
     display: flex; /* Используем flex для центрирования */
     justify-content: left; /* Центрируем по горизонтали */
