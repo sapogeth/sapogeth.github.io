@@ -209,7 +209,7 @@ main {
     flex-direction: column;
     align-items: center;
     color: #000000;
-    left: 135vh;
+    left: 130vh;
 }
 
 .album-art img {
@@ -273,7 +273,7 @@ main {
 
 .down {
     position: fixed;
-    margin-top: -8vh; /* Попробуйте убрать или изменить это значение */
+    margin-top: -30vh; /* Попробуйте убрать или изменить это значение */
     margin-left: -33vh;
     display: flex; /* Используем flex для центрирования */
     justify-content: left; /* Центрируем по горизонтали */
@@ -359,30 +359,43 @@ main {
 
 .container {
     display: flex;
-    gap: 12vh; /* Расстояние между select и изображениями */
-    align-items: flex-start; /* Выровнять select по верху */
+    gap: 12vh; 
+    align-items: flex-start; 
 }
 
 .form-select {
     position: relative;
-    width: 12vh !important; 
-    top: -22vh;
-    margin-top: -9.85vh; /* Этот отступ можно оставить, если он нужен */
-    margin-left: 18vh;
-    margin-bottom: 4.3vh; /* Увеличиваем расстояние между элементами */
-    z-index: 999;
+    height: 5vh;
+    width: 18vh !important; 
+    top: -12vh;
+    margin-top: -15vh; 
+    margin-left: 12vh;
+    margin-bottom: 4.3vh; 
+    z-index: 999; /* Может быть уменьшен, если нужно */
 }
 
-
-/* Если необходимо, можно добавить отдельный класс для обертки всех select, чтобы лучше управлять их позиционированием */
 .select-container {
     position: relative;
     display: flex;
-    flex-direction: column; /* Вертикальное расположение элементов */
-    gap: 0.25vh; /* Расстояние между элементами, если вы хотите */
-    margin-left: 0; /* Отступ слева для контейнера */
-    grid-template-columns: repeat(2, 1fr); /* Два столбца */
+    flex-direction: column; 
+    gap: 0.25vh; 
+    margin-left: 0; 
 }
+
+/* Остальные слои, если они не определены, могут иметь меньшее значение z-index */
+.background-layer { z-index: 1; position: absolute; }
+.skin-layer { z-index: 0; }
+.eyes-layer { z-index: 3; position: absolute; }
+.brows-layer { z-index: 4; position: absolute; }
+.hair-layer { z-index: 5; position: absolute; }
+.clothes-layer { z-index: 6; position: absolute; }
+.mouth-layer { z-index: 7; position: absolute; }
+.accessories-layer { z-index: 8; position: absolute; }
+.hats-layer { z-index: 9; position: absolute; }
+.glasses-layer { z-index: 10; position: absolute; }
+.hands-layer { z-index: 11; position: absolute; }
+.eff-layer { z-index: 15; position: relative;}
+
 
 .image-layer-container {
     position: relative;
@@ -406,9 +419,12 @@ main {
     object-fit: cover; 
     opacity: 0; /* Hide by default */
     transition: opacity 0.3s; /* Smooth transition */
+    object-fit: cover;
 }
 
 .image-layer-container img.visible {
+    position: absolute; /* Чтобы изображения накладывались друг на друга */
+    object-fit: cover;
     opacity: 1; /* Show the visible image */
 }
 
@@ -416,41 +432,19 @@ main {
     position: relative; /* Позволяет использовать z-index для дочерних элементов */
     width: 100%; /* Задайте ширину контейнера по необходимости */
     height: 100%; /* Задайте высоту контейнера по необходимости */
+    z-index: 1;
 }
 
 #select-container img {
     position: absolute; /* Позволяет слоям накладываться друг на друга */
     top: 0; /* Начальная позиция по вертикали */
     left: 0; /* Начальная позиция по горизонтали */
-}
-
-.backgroun-layer {
-    z-index: 1; /* Шляпы выше */
-}
-
-.skin-layer {
-    z-index: 2; /* Шляпы выше */
-}
-
-.clothes-layer {
-    z-index: 3; /* Шляпы выше */
-}
-
-.foreground-layer {
-    z-index: 4; /* Шляпы выше */
-}
-
-.decor-layer {
-    z-index: 5; /* Шляпы выше */
-}
-
-.eff-layer {
-    z-index: 6; /* Шляпы выше */
+    z-index: 1;
 }
 
 /* Пример изменения местоположения для селектора шляп */
 .hats-select {
-    margin-top: -7vh; /* Отступ сверху */
+    margin-top: -9.55vh; /* Отступ сверху */
     margin-left: 30.8vh; /* Отступ слева */
     width: 12vh; /* Ширина селектора */
     /* Дополнительные стили, если нужно */
@@ -484,14 +478,6 @@ main {
     /* Дополнительные стили, если нужно */
 }
 
-.hat-layer {
-    z-index: 2; /* Шляпы выше */
-}
-
-.hair-layer {
-    z-index: 1; /* Волосы ниже шляп */
-}
-
 .glasses-select {
     margin-top: -4vh; /* Отступ сверху */
     margin-left: 30.8vh; /* Отступ слева */
@@ -502,7 +488,7 @@ main {
 .video-layer {
     position: relative; /* или relative, в зависимости от вашего дизайна */
     top: -15vh; /* Установите нужное значение для позиционирования */
-    left: -80vh; /* Установите нужное значение для позиционирования */
+    left: -75vh; /* Установите нужное значение для позиционирования */
     width: 50vh; /* Установите нужный размер */
     height: 20vh; /* Или укажите конкретное значение, например, height: 100%; */
     z-index: 0; /* Убедитесь, что z-index установлен правильно для наложения на другие элементы */
