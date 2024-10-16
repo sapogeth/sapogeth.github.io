@@ -34,7 +34,7 @@ body {
     position: relative; /* Позволяет использовать z-index */
     text-align: center;
     padding: 0px;
-    height: 300px; /* Установите нужную высоту для элемента */
+    height: 30vh; /* Установите нужную высоту для элемента */
     z-index: 1; /* Устанавливаем z-index для этого элемента */
 }
 
