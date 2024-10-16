@@ -33,7 +33,7 @@ body {
 .rain {
     position: relative; /* Позволяет использовать z-index */
     text-align: center;
-    padding: 0px;
+    padding: 0;
     height: 30vh; /* Установите нужную высоту для элемента */
     z-index: 1; /* Устанавливаем z-index для этого элемента */
 }
@@ -49,7 +49,7 @@ body {
 
 .money-background {
     position: fixed;
-    width: 60vw; /* На всю ширину экрана */
+    width: 60vh; /* На всю ширину экрана */
     height: 60vh; /* На всю высоту экрана */
     background-image: url('money1.png'); /* Путь к изображению с деньгами */
     background-size: cover; /* Сохраняет пропорции изображения */
@@ -76,12 +76,12 @@ header {
 /* Логотип */
 #logo {
     position: fixed;
-    width: 550px; /* Ширина логотипа */
+    width: 70vh; /* Ширина логотипа */
     display: block;
-    margin: 20px auto; /* Центрируем логотип */
+    margin: 2vh auto; /* Центрируем логотип */
     position: relative;
     z-index: 2; /* Логотип выше фона */
-    top: -450px;
+    top: -55vh;
 }
 
 .subheader {
@@ -92,8 +92,8 @@ header {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     text-align: center;
     position: relative;
-    top: -530px;
-    left: -20px;
+    top: -65vh;
+    left: -2vh;
     z-index: 2; /* Подзаголовок выше фона */
 }
 
