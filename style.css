@@ -271,7 +271,7 @@ main {
 .down {
     position: fixed;
     top: 900px; /* Попробуйте убрать или изменить это значение */
-    right: 600px;
+    right: -400px;
     display: flex; /* Используем flex для центрирования */
     justify-content: left; /* Центрируем по горизонтали */
 }
