@@ -327,34 +327,18 @@ main {
     object-fit: cover; /* Заполнение области изображения */
 }
 
-/* Адаптация для мобильных устройств */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 1.5em;
-    }
-
-    p {
-        font-size: 1em;
-    }
-
-    .container {
-        padding: 10px;
-    }
+  body {
+    transform: scale(0.8); /* Уменьшение масштаба страницы */
+    transform-origin: top left; /* Чтобы начало было с левого верхнего угла */
+  }
 }
 
-/* Адаптация для очень маленьких экранов */
 @media (max-width: 480px) {
-    h1 {
-        font-size: 1.2em;
-    }
-
-    p {
-        font-size: 0.9em;
-    }
-
-    .container {
-        padding: 5px;
-    }
+  body {
+    transform: scale(0.6); /* Ещё большее уменьшение для маленьких экранов */
+    transform-origin: top left;
+  }
 }
 
 
