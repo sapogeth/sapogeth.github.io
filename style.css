@@ -512,7 +512,7 @@ main {
     font-family: 'Jingleberry', sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 6vh; /* Установите желаемый размер шрифта */
+    font-size: 5vh; /* Установите желаемый размер шрифта */
     text-decoration: none; /* Убираем подчеркивание ссылок, если нужно */
     color: #009238; /* Установите цвет текста, например, черный */
 }
