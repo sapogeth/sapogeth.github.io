@@ -270,7 +270,7 @@ main {
 
 .down {
     position: fixed;
-    margin-top: -180px; /* Попробуйте убрать или изменить это значение */
+    margin-top: -220px; /* Попробуйте убрать или изменить это значение */
     margin-left: -280px;
     display: flex; /* Используем flex для центрирования */
     justify-content: left; /* Центрируем по горизонтали */
