@@ -209,7 +209,7 @@ main {
     flex-direction: column;
     align-items: center;
     color: #000000;
-    left: 130vh;
+    left: 140vh;
 }
 
 .album-art img {
@@ -273,7 +273,7 @@ main {
 
 .down {
     position: fixed;
-    margin-top: -30vh; /* Попробуйте убрать или изменить это значение */
+    margin-top: -20vh; /* Попробуйте убрать или изменить это значение */
     margin-left: -33vh;
     display: flex; /* Используем flex для центрирования */
     justify-content: left; /* Центрируем по горизонтали */
@@ -289,7 +289,7 @@ main {
 .koka {
     position: fixed; /* Фиксированное позиционирование */
     bottom: -15vh; /* Отступ снизу */
-    right: -3vh; /* Отступ справа */
+    right: -5vh; /* Отступ справа */
     z-index: 10; /* Убедитесь, что изображение выше других элементов */
 }
 
@@ -367,10 +367,10 @@ main {
     position: relative;
     height: 5vh;
     width: 18vh !important; 
-    top: -12vh;
+    top: -10vh;
     margin-top: -15vh; 
     margin-left: 12vh;
-    margin-bottom: 4.3vh; 
+    margin-bottom: 4.255vh; 
     z-index: 999; /* Может быть уменьшен, если нужно */
 }
 
@@ -406,8 +406,8 @@ main {
     justify-content: center; 
     align-items: center; 
     margin-top: -53vh;
-    margin-right: 20vh;
-    margin-left: 53vh;
+    margin-right: 25vh;
+    margin-left: 58vh;
 }
 
 .image-layer-container img {
