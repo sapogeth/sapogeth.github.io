@@ -70,7 +70,7 @@ body {
     overflow: visible; /* Позволяет изображению выходить за пределы контейнера */
     clip-path: none; /* Убирает обрезку по маске */
     top: -12vh; /* Расположи на самом верху страницы */
-    left: 0; /* Расположи в левом углу */
+    left: 0vh; /* Расположи в левом углу */
 }
 
 header {
@@ -110,7 +110,7 @@ header {
     width: 25vh;
     height: 25vh;
     position: absolute;
-    top: 10vh;
+    top: 8vh;
     left: 10vh;
     padding: 0;
 }
@@ -122,6 +122,8 @@ header {
     gap: 0;
     width: 100%;
     height: 80%;
+    top: 20vh;
+    left: 10vh;
 }
 
 .gif-container img {
@@ -258,7 +260,7 @@ main {
 
 .babka-container {
     position: fixed; /* Фиксированное позиционирование */
-    top: 44vh; /* Отступ сверху, устанавливается ниже плеера */
+    top: 48vh; /* Отступ сверху, устанавливается ниже плеера */
     right: 6vh; /* Отступ справа, тот же, что и у плеера */
     display: flex; /* Используем flexbox для центрирования */
     justify-content: center; /* Центрируем по горизонтали */
@@ -273,7 +275,7 @@ main {
 
 .down {
     position: fixed;
-    margin-top: -15vh; /* Попробуйте убрать или изменить это значение */
+    margin-top: -10%; /* Попробуйте убрать или изменить это значение */
     margin-left: -33vh;
     display: flex; /* Используем flex для центрирования */
     justify-content: left; /* Центрируем по горизонтали */
@@ -290,7 +292,20 @@ main {
     position: fixed; /* Фиксированное позиционирование */
     bottom: -15vh; /* Отступ снизу */
     right: -5vh; /* Отступ справа */
-    z-index: 10; /* Убедитесь, что изображение выше других элементов */
+    top: 67vh;
+    left: 70%;
+    z-index: 1; /* Убедитесь, что изображение выше других элементов */
+}
+
+@media (max-width: 768px) {
+    .koka {
+        position: fixed; /* Фиксированное позиционирование */
+        bottom: -15vh; /* Отступ снизу */
+        right: -5vh; /* Отступ справа */
+        top: 67vh;
+        left: 180vh !important;
+        z-index: 1; /* Убедитесь, что изображение выше других элементов */
+    }
 }
 
 .corner {
@@ -313,7 +328,7 @@ main {
 .image-preview-section {
     display: flex; /* Используем flex для адаптивности */
     flex-wrap: wrap; /* Позволяем обертывание изображений */
-    max-width: 200vh; /* Максимальная ширина для области изображений */
+    max-width: 300vh; /* Максимальная ширина для области изображений */
 }
 
 .preview {
@@ -324,20 +339,6 @@ main {
     object-fit: cover; /* Заполнение области изображения */
 }
 
-/* Адаптация для мобильных устройств */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.5em;
-    }
-
-    p {
-        font-size: 1em;
-    }
-
-    .container {
-        padding: 10px;
-    }
-}
 
 /* Адаптация для очень маленьких экранов */
 @media (max-width: 480px) {
@@ -361,17 +362,22 @@ main {
     display: flex;
     gap: 12vh; 
     align-items: flex-start; 
+    flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку */
+    position: relative; /* или absolute в зависимости от ваших требований */
+    overflow: visible; /* Убедитесь, что overflow разрешен */
 }
 
 .form-select {
     position: relative;
     height: 5vh;
     width: 18vh !important; 
-    top: -10vh;
-    margin-top: -15vh; 
-    margin-left: 12vh;
-    margin-bottom: 4.255vh; 
+    top: -15vh;
+    bottom: 6vh;
+    margin-top: -15%; 
+    margin-left: 10%;
+    margin-bottom: 6.5%; 
     z-index: 999; /* Может быть уменьшен, если нужно */
+    flex: 1 1 100%; /* Занимает 100% ширины на мобильных устройствах */
 }
 
 .select-container {
@@ -380,22 +386,9 @@ main {
     flex-direction: column; 
     gap: 0.25vh; 
     margin-left: 0; 
+    position: relative; /* или absolute в зависимости от ваших требований */
+    overflow: visible; /* Убедитесь, что overflow разрешен */
 }
-
-/* Остальные слои, если они не определены, могут иметь меньшее значение z-index */
-.background-layer { z-index: 1; position: absolute; }
-.skin-layer { z-index: 0; }
-.eyes-layer { z-index: 3; position: absolute; }
-.brows-layer { z-index: 4; position: absolute; }
-.hair-layer { z-index: 5; position: absolute; }
-.clothes-layer { z-index: 6; position: absolute; }
-.mouth-layer { z-index: 7; position: absolute; }
-.accessories-layer { z-index: 8; position: absolute; }
-.hats-layer { z-index: 9; position: absolute; }
-.glasses-layer { z-index: 10; position: absolute; }
-.hands-layer { z-index: 11; position: absolute; }
-.eff-layer { z-index: 15; position: relative;}
-
 
 .image-layer-container {
     position: relative;
@@ -408,6 +401,7 @@ main {
     margin-top: -53vh;
     margin-right: 25vh;
     margin-left: 58vh;
+    max-width: 100%; /* Изображения не будут шире своих контейнеров */
 }
 
 .image-layer-container img {
@@ -442,44 +436,66 @@ main {
     z-index: 1;
 }
 
+/* Остальные слои, если они не определены, могут иметь меньшее значение z-index */
+.background-layer { z-index: 1; position: absolute; }
+.skin-layer { z-index: 0; }
+.eyes-layer { z-index: 3; position: absolute; }
+.brows-layer { z-index: 4; position: absolute; }
+.hair-layer { z-index: 5; position: absolute; }
+.clothes-layer { z-index: 6; position: absolute; }
+.mouth-layer { z-index: 7; position: absolute; }
+.accessories-layer { z-index: 8; position: absolute; }
+.hats-layer { z-index: 9; position: absolute; }
+.glasses-layer { z-index: 10; position: absolute; }
+.hands-layer { z-index: 11; position: absolute; }
+.eff-layer {
+    position: absolute; /* Или fixed, в зависимости от вашего дизайна */
+    z-index: 9999; /* Наивысший z-index */
+    top: 0; /* Позиция по вертикали */
+    left: 0; /* Позиция по горизонтали */
+    width: 100%; /* Подгоните под нужные размеры */
+    height: 100%; /* Подгоните под нужные размеры */
+    opacity: 1; /* Полная видимость */
+}
+
 /* Пример изменения местоположения для селектора шляп */
 .hats-select {
-    margin-top: -9.55vh; /* Отступ сверху */
+    margin-top: -11.2%; /* Отступ сверху */
     margin-left: 30.8vh; /* Отступ слева */
     width: 12vh; /* Ширина селектора */
     /* Дополнительные стили, если нужно */
 }
 
 .hands-select {
-    margin-top: -4vh; /* Отступ сверху */
+    margin-top: -6.6%; /* Отступ сверху */
     margin-left: 30.8vh; /* Отступ слева */
     width: 12vh; /* Ширина селектора */
     /* Дополнительные стили, если нужно */
 }
 
 .mouth-select {
-    margin-top: -4vh; /* Отступ сверху */
+    margin-top: -6.6%; /* Отступ сверху */
     margin-left: 30.8vh; /* Отступ слева */
     width: 12vh; /* Ширина селектора */
     /* Дополнительные стили, если нужно */
 }
 
 .hair-select {
-    margin-top: -4vh; /* Отступ сверху */
+    margin-top: -6.6%; /* Отступ сверху */
     margin-left: 30.8vh; /* Отступ слева */
     width: 12vh; /* Ширина селектора */
     /* Дополнительные стили, если нужно */
 }
 
 .brows-select {
-    margin-top: -4vh; /* Отступ сверху */
+    margin-top: -6.6%; /* Отступ сверху */
     margin-left: 30.8vh; /* Отступ слева */
     width: 12vh; /* Ширина селектора */
     /* Дополнительные стили, если нужно */
 }
 
 .glasses-select {
-    margin-top: -4vh; /* Отступ сверху */
+    margin-top: -6.6%; /* Отступ сверху */
     margin-left: 30.8vh; /* Отступ слева */
     width: 12vh; /* Ширина селектора */
     /* Дополнительные стили, если нужно */
@@ -488,7 +504,7 @@ main {
 .video-layer {
     position: relative; /* или relative, в зависимости от вашего дизайна */
     top: -15vh; /* Установите нужное значение для позиционирования */
-    left: -75vh; /* Установите нужное значение для позиционирования */
+    left: -85vh; /* Установите нужное значение для позиционирования */
     width: 50vh; /* Установите нужный размер */
     height: 20vh; /* Или укажите конкретное значение, например, height: 100%; */
     z-index: 0; /* Убедитесь, что z-index установлен правильно для наложения на другие элементы */
@@ -505,4 +521,105 @@ main {
 
 .social-options .option:hover {
     color: #f5f5f5; /* Измените цвет текста при наведении, если нужно */
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5em; /* Уменьшение размера заголовка на мобильных устройствах */
+    }
+    .nav {
+        display: none; /* Скрытие навигации на мобильных устройствах */
+    }
+    #logo {
+        width: 90vw;        /* Логотип будет занимать 90% ширины экрана на телефоне */
+        top: -25vh;         /* Подкорректировать вертикальную позицию для маленьких экранов */
+        left: 50vh;            /* Убираем значение left, чтобы центрировать логотип */
+    }
+    .video-layer {
+        position: relative; /* Позиционирование относительно родительского элемента */
+        top: -15vh;         /* Подкорректировать вертикальное позиционирование */
+        left: -80%;         /* Смещаем на 50% от ширины контейнера */
+        width: 50vw;        /* Ширина 50% экрана */
+        height: auto;       /* Сохраняем пропорции */
+        z-index: 0;         /* Убедитесь, что z-index правильный */
+    }
+    .koka {
+        position: fixed; /* Фиксированное позиционирование */
+        bottom: -15vh; /* Отступ снизу */
+        right: -50vh; /* Отступ справа */
+        top: 65vh;
+        left: 120vh;
+        z-index: 1; /* Убедитесь, что изображение выше других элементов */
+    }
+    .money-background {
+        width: 100vw; /* Занимает всю ширину экрана на телефоне */
+        height: 50vh; /* Корректируем высоту под мобильный экран */
+        left: 0; /* Убираем отступ слева */
+        top: 0; /* Оставляем блок вверху экрана */
+        background-size: cover; /* Сохраняем пропорции фона */
+        background-position: center; /* Центрируем фон */
+    }
+    .audio-player {
+        width: 30vh;
+        background-color: #ffffff;
+        border-radius: 2vh;
+        padding: 2vh;
+        box-shadow: 0 0.4vh 0.8px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #000000;
+        left: 160vh;
+    }
+}
+
+/* Скрываем уведомление по умолчанию */
+#rotateNotification {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* Прозрачный черный фон */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    z-index: 1000;
+}
+
+/* Скрываем уведомление по умолчанию */
+#rotateNotification {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* Прозрачный черный фон */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    z-index: 1000;
+}
+
+/* Стили для кнопки закрытия */
+#rotateNotification button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #ff4500;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#rotateNotification button:hover {
+    background-color: #ff6347;
 }
