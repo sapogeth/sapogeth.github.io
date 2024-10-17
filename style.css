@@ -398,8 +398,9 @@ main {
     display: flex; /* Центрирование изображений внутри */
     justify-content: center; 
     align-items: center; 
+    right: -10%;
     margin-top: -53vh;
-    margin-right: 25vh;
+    margin-right: 50%;
     margin-left: 58vh;
     max-width: 100%; /* Изображения не будут шире своих контейнеров */
 }
