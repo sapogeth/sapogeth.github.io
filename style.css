@@ -275,7 +275,7 @@ main {
 
 .down {
     position: fixed;
-    margin-top: -10%; /* Попробуйте убрать или изменить это значение */
+    margin-top: -8%; /* Попробуйте убрать или изменить это значение */
     margin-left: -33vh;
     display: flex; /* Используем flex для центрирования */
     justify-content: left; /* Центрируем по горизонтали */
