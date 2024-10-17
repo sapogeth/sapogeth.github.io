@@ -1,118 +1,77 @@
+/* Base Styles (Desktop First) */
 @font-face {
-    font-family: 'Jingleberry'; /* Название шрифта, под которым вы будете его использовать */
-    src: url('fonts/Jingleberry.otf') format('opentype'); /* Путь к файлу и формат */
+    font-family: 'Jingleberry';
+    src: url('fonts/Jingleberry.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
-/* Basic reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
-    background-image: url('back.jpeg'); /* Путь к общему фону */
+    background-image: url('back.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 120vh; /* Высота для полного экрана */
-    overflow: hidden; /* Скрываем прокрутку */
-    margin: 0; /* Убираем отступы у body */
+    height: 120vh;
+    overflow: hidden;
+    margin: 0;
 }
 
-/* Фоновый GIF */
 .background-gif {
-    position: fixed; /* Фиксируем элемент */
-    top: 0; /* Позиционируем сверху */
-    left: 0; /* Позиционируем слева */
-    width: 100%; /* Ширина на 100% */
-    height: 100%; /* Высота на 100% */
-    background-image: url('rain.gif'); /* Укажите путь к вашему GIF */
-    background-size: 70vh; /* Растягиваем изображение, чтобы покрыть весь экран */
-    background-repeat: repeat; /* Повторяем изображение по всему экрану */
-    z-index: -1; /* Отправляем на задний план */
-}
-
-.rain {
-    position: relative; /* Позволяет использовать z-index */
-    text-align: center;
-    padding: 0;
-    height: 30vh; /* Установите нужную высоту для элемента */
-    z-index: 1; /* Устанавливаем z-index для этого элемента */
-}
-
-@keyframes fall {
-    0% {
-        top: -50vh;
-    }
-    100% {
-        top: 100vh; /* Гифка будет падать за пределы экрана */
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('rain.gif');
+    background-size: 70vh;
+    background-repeat: repeat;
+    z-index: -1;
 }
 
 .money-background {
     position: fixed;
-    width: 60vw; /* На всю ширину экрана */
-    height: 60vh; /* На всю высоту экрана */
-    background-image: url('money1.png'); /* Путь к изображению с деньгами */
-    background-size: cover; /* Сохраняет пропорции изображения */
+    width: 60vw;
+    height: 60vh;
+    background-image: url('money1.png');
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; /* Центрируем изображение */
-    margin: 0 auto; /* Центрируем блок */
-    position: relative; /* Позволяет использовать отступы */
-    left: 10vh; /* Сдвигаем блок вправо (настраивайте по необходимости) */
-    z-index: 1; /* Устанавливаем порядок наложения */
-    object-fit: cover; /* или object-fit: contain для сохранения пропорций */
-    overflow: visible; /* Позволяет изображению выходить за пределы контейнера */
-    clip-path: none; /* Убирает обрезку по маске */
-    top: -8vh; /* Расположи на самом верху страницы */
-    left: 0vh; /* Расположи в левом углу */
+    background-position: center;
+    left: 10vh;
+    z-index: 1;
 }
 
 header {
-    position: relative; /* Позволяет использовать z-index */
-    overflow: visible; /* Позволяет фону быть видимым за пределами заголовка */
-    padding: 0; /* Убираем отступы у header */
-    margin: 0; /* Убираем отступы у header */
+    position: relative;
+    padding: 0;
+    margin: 0;
 }
 
-/* Логотип */
 #logo {
     position: fixed;
-    width: 70vh; /* Ширина логотипа */
-    display: block;
-    margin: 2vh auto; /* Центрируем логотип */
-    position: relative;
-    z-index: 2; /* Логотип выше фона */
+    width: 70vh;
+    margin: 2vh auto;
+    z-index: 2;
     top: -48vh;
 }
 
 .subheader {
-    font-family: 'Cubynets', sans-serif; /* Указываем новый шрифт */
+    font-family: 'Cubynets', sans-serif;
     font-size: 1.8em;
-    font-weight: normal;
     color: rgb(255, 255, 255);
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     text-align: center;
-    position: relative;
     top: -56vh;
-    left: -2vh;
-    z-index: 2; /* Подзаголовок выше фона */
+    z-index: 2;
 }
 
-/* Основная секция для GIFов */
 .left-section {
     position: fixed;
     width: 25vh;
     height: 25vh;
-    position: absolute;
     top: 15vh;
     left: 10vh;
-    padding: 0;
 }
 
 .gif-container {
@@ -130,10 +89,8 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 0;
 }
 
-/* Центрирование основного контента */
 main {
     display: flex;
     justify-content: space-between;
@@ -141,64 +98,47 @@ main {
     margin-left: 25vh;
 }
 
-/* Центрированная секция для выпадающих меню */
 .center-section {
-    width: 30%; /* Установите нужную ширину для вашей секции */
-    text-align: center; /* Центрируем текст внутри */
-    margin: 0 auto; /* Центрируем элемент */
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
 }
 
-/* Right section for social buttons */
 .right-section {
     width: 40%;
     padding: 8vh;
 }
 
-/* Социальные опции */
 .social-options {
     display: flex;
-    flex-direction: column; /* Расположение в столбик */
-    align-items: flex-start; /* Выравнивание по левому краю */
-    margin-top: 10vh; /* Отступ сверху */
-    padding-left: -10vh; /* Отступ слева */
-    width: 100vh; /* Ширина контейнера, можно настроить */
-    position: relative; /* Позволяет использовать отступы и позиционирование */
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10vh;
+    padding-left: -10vh;
+    width: 100vh;
+    position: relative;
 }
 
-/* Индивидуальные опции */
 .option {
-    font-size: 2em; /* Размер шрифта, можно настроить */
-    margin: 3vh 0; /* Отступы сверху и снизу */
-    color: rgb(0, 136, 2); /* Цвет текста */
-    
-    /* Эффект обводки для каждой буквы */
-    text-shadow: 
-        -0.2vh -0.2vh 0 rgb(0, 0, 0),  
-         0.2vh -0.2vh 0 rgb(0, 0, 0),
-        -0.2vh  0.2vh 0 rgb(0, 0, 0),
-         0.2vh  0.2vh 0 rgb(0, 0, 0); /* Черная обводка */
-    
-    cursor: pointer; /* Указывает, что элемент кликабельный */
+    font-size: 2em;
+    margin: 3vh 0;
+    color: rgb(0, 136, 2);
+    text-shadow: -0.2vh -0.2vh 0 rgb(0, 0, 0), 0.2vh -0.2vh 0 rgb(0, 0, 0), -0.2vh 0.2vh 0 rgb(0, 0, 0), 0.2vh 0.2vh 0 rgb(0, 0, 0);
+    cursor: pointer;
 }
 
-/* Эффект при наведении */
 .option:hover {
-    color: rgb(243, 243, 243); /* Цвет текста при наведении */
+    color: rgb(243, 243, 243);
 }
 
-/* Контейнер для социальных опций */
 .social-container {
-    display: flex; /* Используем flexbox для расположения опций */
-    flex-direction: column; /* Вертикальное расположение */
-    align-items: center; /* Центрирование содержимого по горизонтали */
-    width: 100%; /* Ширина 100% для заполнения родителя */
-    position: absolute; /* Позволяет позиционировать относительно родителя */
-    top: 50vh; /* Положение сверху */
-    left: 0; /* Положение слева */
-}
-/* Скрытый контент */
-.hidden {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 50vh;
+    left: 0;
 }
 
 .audio-player {
@@ -227,7 +167,7 @@ main {
 }
 
 #play-pause-btn {
-    background-color:hsl(128, 100%, 39%);
+    background-color: hsl(128, 100%, 39%);
     color: rgb(0, 0, 0);
     border: none;
     padding: 1vh 2vh;
@@ -243,14 +183,12 @@ main {
 #progress-bar {
     width: 100%;
     margin-top: 1.5vh;
-    -webkit-appearance: none;
     background-color: #000000;
     height: 0.5vh;
     border-radius: 2vh;
 }
 
 #progress-bar::-webkit-slider-thumb {
-    -webkit-appearance: none;
     width: 2vh;
     height: 2vh;
     background-color: hsl(128, 100%, 39%);
@@ -258,369 +196,122 @@ main {
     cursor: pointer;
 }
 
-.babka-container {
-    position: fixed; /* Фиксированное позиционирование */
-    top: 48vh; /* Отступ сверху, устанавливается ниже плеера */
-    right: 6vh; /* Отступ справа, тот же, что и у плеера */
-    display: flex; /* Используем flexbox для центрирования */
-    justify-content: center; /* Центрируем по горизонтали */
-    align-items: center; /* Центрируем по вертикали */
-    z-index: 9; /* Убедитесь, что гифка находится ниже плеера */
-}
-
-.ggif {
-    width: 33vh; /* Ширина гифки (можно настроить) */
-    height: auto; /* Автоматическая высота для сохранения пропорций */
-}
-
-.down {
-    position: fixed;
-    margin-top: -5%; /* Попробуйте убрать или изменить это значение */
-    margin-left: -33vh;
-    display: flex; /* Используем flex для центрирования */
-    justify-content: left; /* Центрируем по горизонтали */
-}
-
-.img-down {
-    position: fixed;
-    width: 60vh; /* Установите нужную ширину */
-    height: auto; /* Позволяет высоте подстраиваться автоматически для сохранения пропорций */
-    max-width: 100%; /* Ограничиваем ширину для адаптивности */
-}
-
-.koka {
-    position: fixed; /* Фиксированное позиционирование */
-    bottom: -15vh; /* Отступ снизу */
-    right: -5vh; /* Отступ справа */
-    top: 67vh;
-    left: 70%;
-    z-index: 1; /* Убедитесь, что изображение выше других элементов */
-}
-
+/* Mobile Adaptations */
 @media (max-width: 768px) {
-    .koka {
-        position: fixed; /* Фиксированное позиционирование */
-        bottom: -15vh; /* Отступ снизу */
-        right: -5vh; /* Отступ справа */
-        top: 67vh;
-        left: 180vh !important;
-        z-index: 1; /* Убедитесь, что изображение выше других элементов */
-    }
-}
-
-.corner {
-    width: 65vh; /* Ширина изображения, можно настроить */
-    height: 20vh;
-    height: auto; /* Высота подстраивается автоматически для сохранения пропорций */
-}
-
-.file-upload-container {
-    display: flex; /* Используем flex для горизонтального расположения */
-    justify-content: center; /* Центрируем по горизонтали */
-    align-items: flex-start; /* Выравниваем по верхнему краю */
-    margin-top: 20vh; /* Отступ сверху */
-}
-
-.file-input-section {
-    margin-right: 10vh; /* Отступ справа для файла */
-}
-
-.image-preview-section {
-    display: flex; /* Используем flex для адаптивности */
-    flex-wrap: wrap; /* Позволяем обертывание изображений */
-    max-width: 300vh; /* Максимальная ширина для области изображений */
-}
-
-.preview {
-    max-width: calc(33% - 10px); /* Максимальная ширина для 3 изображений в ряд */
-    height: auto; /* Высота подстраивается автоматически для сохранения пропорций */
-    margin: 1vh; /* Отступ между изображениями */
-    border: 1.2vh solid #ccc; /* Рамка вокруг изображения */
-    object-fit: cover; /* Заполнение области изображения */
-}
-
-
-/* Адаптация для очень маленьких экранов */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.2em;
+    body {
+        background-attachment: scroll; /* Fix the background */
+        overflow-x: hidden;
     }
 
-    p {
-        font-size: 0.9em;
-    }
-
-    .container {
-        padding: 5px;
-    }
-}
-
-
-------
-
-.container {
-    display: flex;
-    gap: 12vh; 
-    align-items: flex-start; 
-    flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку */
-    position: relative; /* или absolute в зависимости от ваших требований */
-    overflow: visible; /* Убедитесь, что overflow разрешен */
-}
-
-.form-select {
-    position: relative;
-    height: 5vh;
-    width: 18vh !important; 
-    top: -15vh;
-    bottom: 6vh;
-    margin-top: -15%; 
-    margin-left: 10%;
-    margin-bottom: 6.5%; 
-    z-index: 999; /* Может быть уменьшен, если нужно */
-    flex: 1 1 100%; /* Занимает 100% ширины на мобильных устройствах */
-}
-
-.select-container {
-    position: relative;
-    display: flex;
-    flex-direction: column; 
-    gap: 0.25vh; 
-    margin-left: 0; 
-    position: relative; /* или absolute в зависимости от ваших требований */
-    overflow: visible; /* Убедитесь, что overflow разрешен */
-}
-
-.image-layer-container {
-    position: relative;
-    width: 37vh; /* Ширина контейнера для изображения */
-    height: 35vh; /* Высота контейнера для изображения */
-    border: 0.3vh solid #ccc;
-    display: flex; /* Центрирование изображений внутри */
-    justify-content: center; 
-    align-items: center; 
-    right: -10%;
-    margin-top: -53vh;
-    margin-right: 50%;
-    margin-left: 58vh;
-    max-width: 100%; /* Изображения не будут шире своих контейнеров */
-}
-
-.image-layer-container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; 
-    height: 100%;
-    object-fit: cover; 
-    opacity: 0; /* Hide by default */
-    transition: opacity 0.3s; /* Smooth transition */
-    object-fit: cover;
-}
-
-.image-layer-container img.visible {
-    position: absolute; /* Чтобы изображения накладывались друг на друга */
-    object-fit: cover;
-    opacity: 1; /* Show the visible image */
-}
-
-#select-container {
-    position: relative; /* Позволяет использовать z-index для дочерних элементов */
-    width: 100%; /* Задайте ширину контейнера по необходимости */
-    height: 100%; /* Задайте высоту контейнера по необходимости */
-    z-index: 1;
-}
-
-#select-container img {
-    position: absolute; /* Позволяет слоям накладываться друг на друга */
-    top: 0; /* Начальная позиция по вертикали */
-    left: 0; /* Начальная позиция по горизонтали */
-    z-index: 1;
-}
-
-/* Остальные слои, если они не определены, могут иметь меньшее значение z-index */
-.background-layer { z-index: 1; position: absolute; }
-.skin-layer { z-index: 0; }
-.eyes-layer { z-index: 3; position: absolute; }
-.brows-layer { z-index: 4; position: absolute; }
-.hair-layer { z-index: 5; position: absolute; }
-.clothes-layer { z-index: 6; position: absolute; }
-.mouth-layer { z-index: 7; position: absolute; }
-.accessories-layer { z-index: 8; position: absolute; }
-.hats-layer { z-index: 9; position: absolute; }
-.glasses-layer { z-index: 10; position: absolute; }
-.hands-layer { z-index: 11; position: absolute; }
-.eff-layer {
-    position: absolute; /* Или fixed, в зависимости от вашего дизайна */
-    z-index: 9999; /* Наивысший z-index */
-    top: 0; /* Позиция по вертикали */
-    left: 0; /* Позиция по горизонтали */
-    width: 100%; /* Подгоните под нужные размеры */
-    height: 100%; /* Подгоните под нужные размеры */
-    opacity: 1; /* Полная видимость */
-}
-
-/* Пример изменения местоположения для селектора шляп */
-.hats-select {
-    margin-top: -11.2%; /* Отступ сверху */
-    margin-left: 30.8vh; /* Отступ слева */
-    width: 12vh; /* Ширина селектора */
-    /* Дополнительные стили, если нужно */
-}
-
-.hands-select {
-    margin-top: -6.6%; /* Отступ сверху */
-    margin-left: 30.8vh; /* Отступ слева */
-    width: 12vh; /* Ширина селектора */
-    /* Дополнительные стили, если нужно */
-}
-
-.mouth-select {
-    margin-top: -6.6%; /* Отступ сверху */
-    margin-left: 30.8vh; /* Отступ слева */
-    width: 12vh; /* Ширина селектора */
-    /* Дополнительные стили, если нужно */
-}
-
-.hair-select {
-    margin-top: -6.6%; /* Отступ сверху */
-    margin-left: 30.8vh; /* Отступ слева */
-    width: 12vh; /* Ширина селектора */
-    /* Дополнительные стили, если нужно */
-}
-
-.brows-select {
-    margin-top: -6.6%; /* Отступ сверху */
-    margin-left: 30.8vh; /* Отступ слева */
-    width: 12vh; /* Ширина селектора */
-    /* Дополнительные стили, если нужно */
-}
-
-.glasses-select {
-    margin-top: -6.6%; /* Отступ сверху */
-    margin-left: 30.8vh; /* Отступ слева */
-    width: 12vh; /* Ширина селектора */
-    /* Дополнительные стили, если нужно */
-}
-
-.video-layer {
-    position: relative; /* или relative, в зависимости от вашего дизайна */
-    top: -10vh; /* Установите нужное значение для позиционирования */
-    left: -85vh; /* Установите нужное значение для позиционирования */
-    width: 50vh; /* Установите нужный размер */
-    height: 20vh; /* Или укажите конкретное значение, например, height: 100%; */
-    z-index: 0; /* Убедитесь, что z-index установлен правильно для наложения на другие элементы */
-}
-
-.social-options .option {
-    font-family: 'Jingleberry', sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 5vh; /* Установите желаемый размер шрифта */
-    text-decoration: none; /* Убираем подчеркивание ссылок, если нужно */
-    color: #009238; /* Установите цвет текста, например, черный */
-}
-
-.social-options .option:hover {
-    color: #f5f5f5; /* Измените цвет текста при наведении, если нужно */
-}
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.5em; /* Уменьшение размера заголовка на мобильных устройствах */
-    }
-    .nav {
-        display: none; /* Скрытие навигации на мобильных устройствах */
-    }
     #logo {
-        width: 90vw;        /* Логотип будет занимать 90% ширины экрана на телефоне */
-        top: -25vh;         /* Подкорректировать вертикальную позицию для маленьких экранов */
-        left: 50vh;            /* Убираем значение left, чтобы центрировать логотип */
+        width: 90vw;  /* Make the logo full width */
+        top: 10vh;
+        left: 5vw;
     }
-    .video-layer {
-        position: relative; /* Позиционирование относительно родительского элемента */
-        top: -15vh;         /* Подкорректировать вертикальное позиционирование */
-        left: -80%;         /* Смещаем на 50% от ширины контейнера */
-        width: 50vw;        /* Ширина 50% экрана */
-        height: auto;       /* Сохраняем пропорции */
-        z-index: 0;         /* Убедитесь, что z-index правильный */
-    }
-    .koka {
-        position: fixed; /* Фиксированное позиционирование */
-        bottom: -15vh; /* Отступ снизу */
-        right: -50vh; /* Отступ справа */
-        top: 65vh;
-        left: 120vh;
-        z-index: 1; /* Убедитесь, что изображение выше других элементов */
-    }
+
     .money-background {
-        width: 100vw; /* Занимает всю ширину экрана на телефоне */
-        height: 50vh; /* Корректируем высоту под мобильный экран */
-        left: 0; /* Убираем отступ слева */
-        top: 0; /* Оставляем блок вверху экрана */
-        background-size: cover; /* Сохраняем пропорции фона */
-        background-position: center; /* Центрируем фон */
+        width: 100vw;
+        height: 50vh;
+        background-size: cover;
+        background-position: center;
+        left: 0;
+        top: 0;
     }
-    .audio-player {
-        width: 30vh;
-        background-color: #ffffff;
-        border-radius: 2vh;
-        padding: 2vh;
-        box-shadow: 0 0.4vh 0.8px rgba(0, 0, 0, 0.3);
+
+    .gif-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        top: 10vh;
+        left: 5vh;
+    }
+
+    .gif-container img {
+        width: 100%;
+        height: 100%;
+    }
+
+    main {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        color: #000000;
-        left: 160vh;
+        margin-left: 0;
     }
-}
 
-/* Скрываем уведомление по умолчанию */
-#rotateNotification {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8); /* Прозрачный черный фон */
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    z-index: 1000;
-}
+    .center-section {
+        width: 80%;
+    }
 
-/* Скрываем уведомление по умолчанию */
-#rotateNotification {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8); /* Прозрачный черный фон */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    z-index: 1000;
-}
+    .right-section {
+        width: 100%;
+        padding: 5vh;
+    }
 
-/* Стили для кнопки закрытия */
-#rotateNotification button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1em;
-    color: #fff;
-    background-color: #ff4500;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
+    .social-options {
+        flex-direction: row;
+        align-items: center;
+        padding-left: 0;
+    }
 
-#rotateNotification button:hover {
-    background-color: #ff6347;
+    .audio-player {
+        width: 80vw;
+        left: 10vw;
+        padding: 2vh;
+    }
+
+    /* Adjust the size of the audio controls */
+    #play-pause-btn {
+        padding: 1vh 1.5vh;
+        font-size: 1.5vh;
+    }
+
+    #progress-bar {
+        height: 0.5vh;
+    }
+
+    #progress-bar::-webkit-slider-thumb {
+        width: 2vh;
+        height: 2vh;
+    }
+
+    .subheader {
+        font-size: 1.2em;
+        top: -40vh;
+    }
+
+    /* Adjust layout for the file upload and image preview section */
+    .file-upload-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-preview-section {
+        max-width: 90vw;
+        flex-wrap: wrap;
+    }
+
+    .preview {
+        max-width: calc(50% - 10px);
+    }
+
+    .koka {
+        position: fixed;
+        bottom: -15vh;
+        right: 0;
+        top: 65vh;
+        z-index: 1;
+    }
+
+    .video-layer {
+        width: 70vw;
+        height: auto;
+        left: 10vw;
+    }
+
+    /* Adjust social options and fonts for smaller screen */
+    .social-options .option {
+        font-size: 4vh;
+    }
+
+    .social-options .option:hover {
+        color: #f5f5f5;
+    }
 }
